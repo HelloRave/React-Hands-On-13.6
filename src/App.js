@@ -23,9 +23,18 @@ export default function App() {
     ]
   });
 
+  const context = {
+    book: () => {
+      return books
+    }
+  }
+
   return (
-    <div className="App">
-      <h1>Books</h1>
-    </div>
+    <React.Fragment>
+      <BookContext.Provider value={context}>
+        <h1>Books</h1>
+        <BookListing/>
+      </BookContext.Provider>
+    </React.Fragment>
   );
 }
